@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://RickLeinecker:COP4331Rocks@cluster0-4pisv.mongodb.net/COP4331?retryWrites=true&w=majority';
+const url = 'mongodb+srv://Rockyroad:kxc9v5FDPssEsIYJ@cluster0.vyticwa.mongodb.net/?retryWrites=true&w=majority';
 
 const client = new MongoClient(url);
 client.connect();
