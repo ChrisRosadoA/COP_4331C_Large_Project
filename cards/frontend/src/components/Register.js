@@ -16,19 +16,31 @@ function Register()
     {
         event.preventDefault();
 
-        var obj = {register:registerName.value,password:registerPassword.value};
-        var js = JSON.stringify(obj);
+        if (registerPassword.value !== registerPasswordRepeat.value) {
+            setMessage("The passwords do not match.");
+            return;
+        }
 
+        if (!isValidEmail(registerEmail.value)) {
+            setMessage("The email is not valid");
+            return;
+        }
+        setMessage('');
+
+        var obj = {register:registerName.value,password:registerPassword.value,email:registerEmail.value};
+        var js = JSON.stringify(obj);
+        console.log(js);
         try
         {    
-            const response = await fetch('http://localhost:5000/api/register',
+            const response = await fetch('http://localhost:3000/api/register',
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             var res = JSON.parse(await response.text());
-
+            console.log(response);
+            console.log(res);
             if( res.id <= 0 )
             {
-                setMessage('User/Password combination incorrect');
+                setMessage('could not register user');
             }
             else
             {
@@ -46,15 +58,20 @@ function Register()
         }    
     };
 
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
 
     return(
       <div id="registerDiv">
         <form onSubmit={doRegister}>
         <span id="inner-title">Register</span><br />
-        <input type="text" id="registerName" placeholder="Username" ref={(c) => registerName = c} /><br />
-        <input type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
-
-        <input type="submit" id="registerButton" class="buttons" value = "Do It"
+        <input type="text" id="registerName" placeholder="Username" ref={(c) => registerName = c} required /><br />
+        <input type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} required /><br />
+        <input type="password" id="registerPasswordRepeat" placeholder="Repeat Password" ref={(c) => registerPasswordRepeat = c} required /><br />
+        <input type="email" id="registerEmail" placeholder="Email" ref={(c) => registerEmail = c} required/><br />
+        <input type="submit" id="registerButton" class="buttons" value = "Register Account"
           onClick={doRegister} />
         </form>
         <span id="loginResult">{message}</span>

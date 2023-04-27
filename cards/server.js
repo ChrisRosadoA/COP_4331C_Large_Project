@@ -162,12 +162,12 @@ app.post('/api/login', async (req, res, next) =>
 {
   // incoming: login, password
   // outgoing: id, firstName, lastName, error
-	
+	console.log(req);
  var error = '';
 
   const { login, password } = req.body;
 
-  const db = client.db("COP4331Cards");
+  const db = client.db("project2");
   const results = await db.collection('Users').find({Login:login,Password:password}).toArray();
 
   var id = -1;
@@ -185,30 +185,45 @@ app.post('/api/login', async (req, res, next) =>
   res.status(200).json(ret);
 });
 
-app.post('/api/register', async (req, res, next) => 
-{
-  // incoming: login, password, email
-  // outgoing: id, firstName, lastName, error
+// app.post('/api/register', async (req, res, next) => 
+// {
+//   incoming: login, password, email
+//   outgoing: id, firstName, lastName, error
 	
- var error = '';
+//  var error = '';
 
-  const { login, password, email } = req.body;
+//   const { login, password, email } = req.body;
 
-  const db = client.db("COP4331Cards");
-  const results = await db.collection('Users').find({Login:login,Password:password,Email:email}).toArray();
+//   const db = client.db("project2");
+//   const results = await db.insertOne('Users');
 
-  var id = -1;
-  var fn = '';
-  var ln = '';
+//   var id = -1;
+//   var fn = '';
+//   var ln = '';
 
-  if( results.length > 0 )
-  {
-    id = results[0].UserID;
-    fn = results[0].FirstName;
-    ln = results[0].LastName;
-  }
+//   if( results.length > 0 )
+//   {
+//     id = results[0].UserID;
+//     fn = results[0].FirstName;
+//     ln = results[0].LastName;
+//   }
 
-  var ret = { id:id, firstName:fn, lastName:ln, error:''};
+//   var ret = { id:id, firstName:fn, lastName:ln, error:''};
+//   res.status(200).json(ret);
+// });
+
+app.post('/api/register', async (req, res, next) => {
+  const { username, password, email } = req.body;
+
+  const db = client.db('project2');
+  const users = db.collection('Users');
+
+  const newUser = { username, password, email };
+  const result = await users.insertOne(newUser);
+
+  const { insertedId } = result;
+  const ret = { id: insertedId, username, email, error: '' };
+
   res.status(200).json(ret);
 });
 
