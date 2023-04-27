@@ -185,6 +185,34 @@ app.post('/api/login', async (req, res, next) =>
   res.status(200).json(ret);
 });
 
+app.post('/api/register', async (req, res, next) => 
+{
+  // incoming: login, password, email
+  // outgoing: id, firstName, lastName, error
+	
+ var error = '';
+
+  const { login, password, email } = req.body;
+
+  const db = client.db("COP4331Cards");
+  const results = await db.collection('Users').find({Login:login,Password:password,Email:email}).toArray();
+
+  var id = -1;
+  var fn = '';
+  var ln = '';
+
+  if( results.length > 0 )
+  {
+    id = results[0].UserID;
+    fn = results[0].FirstName;
+    ln = results[0].LastName;
+  }
+
+  var ret = { id:id, firstName:fn, lastName:ln, error:''};
+  res.status(200).json(ret);
+});
+
+
 
 app.post('/api/searchcards', async (req, res, next) => 
 {

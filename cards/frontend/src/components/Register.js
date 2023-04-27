@@ -21,7 +21,7 @@ function Register()
 
         try
         {    
-            const response = await fetch('http://localhost:5000/api/login',
+            const response = await fetch('http://localhost:5000/api/register',
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             var res = JSON.parse(await response.text());
@@ -36,7 +36,7 @@ function Register()
                 localStorage.setItem('user_data', JSON.stringify(user));
 
                 setMessage('');
-                window.location.href = '/cards';
+                window.location.href = '/';
             }
         }
         catch(e)
