@@ -1,0 +1,38 @@
+#loginDiv {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 400px;
+    border-radius: 10px;
+}
+
+
+#loginDiv h1 {
+    color: white;
+    text-align: center;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid silver;
+}
+
+#loginDiv form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+
+/* .register-window form .txt-field{
+    margin: 20px 0;
+} */
+
+input {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 10px;
+}
