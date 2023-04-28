@@ -1,0 +1,36 @@
+#contactDiv {
+    color: white;
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 400px;
+    border-radius: 10px;
+}
+
+#contactDiv h1 {
+    color: white;
+    text-align: center;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid silver;
+}
+
+#contactRole {
+    float: right;
+    color: aquamarine;
+}
+
+#contactTable {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #contactMember {
+    margin-bottom: 20px; /* optional, adds spacing between members */
+  }
+  
+  #contactDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  

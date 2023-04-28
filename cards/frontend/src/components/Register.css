@@ -1,4 +1,4 @@
-#loginDiv {
+#registerDiv {
     position: absolute;
     bottom: 60%;
     left: 50%;
@@ -8,14 +8,14 @@
 }
 
 
-#loginDiv h1 {
+#registerDiv h1 {
     color: white;
     text-align: center;
     padding: 0 0 10px 0;
     border-bottom: 1px solid silver;
 }
 
-#loginDiv form {
+#registerDiv form {
     padding: 0 40px;
     box-sizing: border-box;
 }

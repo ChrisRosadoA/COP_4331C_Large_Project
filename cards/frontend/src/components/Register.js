@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./Register.css"
 
 function Register()
 {
@@ -50,11 +51,13 @@ function Register()
     return(
       <div id="registerDiv">
         <form onSubmit={doRegister}>
-        <span id="inner-title">Register</span><br />
+        <h1 id="inner-title">Register</h1>
         <input type="text" id="registerName" placeholder="Username" ref={(c) => registerName = c} /><br />
         <input type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
+        <input type="password" id="registerPasswordRepeat" placeholder="Repeat Password" ref={(c) => registerPasswordRepeat = c} /><br />
+        <input type="email" id="registerEmail" placeholder="Email" ref={(c) => registerEmail = c} /><br />
 
-        <input type="submit" id="registerButton" class="buttons" value = "Do It"
+        <input type="submit" id="registerButton" class="buttons" value = "Register"
           onClick={doRegister} />
         </form>
         <span id="loginResult">{message}</span>

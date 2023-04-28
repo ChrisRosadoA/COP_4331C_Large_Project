@@ -1,0 +1,16 @@
+#aboutDiv {
+    color: white;
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 400px;
+    border-radius: 10px;
+}
+
+#aboutDiv h1 {
+    color: white;
+    text-align: center;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid silver;
+}

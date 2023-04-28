@@ -11,12 +11,10 @@ function PageTitle()
         <h1><a href="#">Final Fantasy <span>Cards</span></a></h1>
 
         <nav>
-          <a href="#">Home</a>
-          <a href="#" class="selected">Blog</a>
-          <a href="#">Pricing</a>
-          <a href="#">About</a>
-          <a href="#">Faq</a>
-          <a href="#">Contact</a>
+          <a href="/">Home</a>
+          <a href="/register">Register</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </nav>
 
       </div>
